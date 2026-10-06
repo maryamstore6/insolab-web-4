@@ -1,5 +1,19 @@
 <?php
 /**
+ * HTTP Security Headers — tambah melalui PHP (LiteSpeed tak baca .htaccess)
+ */
+add_action('send_headers', function () {
+    if (headers_sent()) return;
+    header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: SAMEORIGIN');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
+    header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://fonts.googleapis.com https://www.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://wa.me; frame-ancestors 'self'; base-uri 'self'; form-action 'self'");
+});
+
+
+/**
  * InsoLab theme — functions.
  *
  * @package InsoLab
@@ -353,27 +367,6 @@ function insolab_product_blocks() {
     </div>
     <?php
 }
-
-
-
-/* ═══════════════ 11. BUTANG WHATSAPP TERAPUNG ═══════════════ */
-add_action('wp_footer', function () {
-    if (is_admin()) return;
-    $url = insolab_wa_url('Hi InsoLab, saya ingin bertanya tentang custom insole.');
-    ?>
-    <div class="wa-float" id="waFloat">
-      <a class="wa-float-btn" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener"
-         aria-label="<?php esc_attr_e('Tanya kami di WhatsApp', 'insolab'); ?>">
-        <?php echo insolab_icon('wa', 'ico-wa wa-svg'); ?>
-        <span class="wa-float-txt"><?php esc_html_e('Tanya kami', 'insolab'); ?></span>
-        <span class="wa-float-ping" aria-hidden="true"></span>
-      </a>
-      <button class="wa-float-close" id="waClose" type="button" aria-label="<?php esc_attr_e('Tutup', 'insolab'); ?>">
-        <?php echo insolab_icon('close'); ?>
-      </button>
-    </div>
-    <?php
-}, 30);
 
 
 

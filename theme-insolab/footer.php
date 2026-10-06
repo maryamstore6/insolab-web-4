@@ -76,6 +76,9 @@ if (is_product()) : ?>
     <span class="sticky-cta-price"><?php echo wc_price(WC()->cart->get_cart_contents_total() > 0 ? WC()->cart->get_cart_contents_total() : 399); ?></span>
     <span class="sticky-cta-note"><?php esc_html_e('Pos percuma · Jaminan 180 hari', 'insolab'); ?></span>
   </div>
+  <a class="sticky-cta-wa" href="<?php echo esc_url(insolab_wa_url('Hi InsoLab, saya ingin bertanya tentang custom insole.')); ?>" target="_blank" rel="noopener" aria-label="<?php esc_attr_e('Tanya di WhatsApp', 'insolab'); ?>">
+    <?php echo insolab_icon('wa', 'ico-wa'); ?>
+  </a>
   <a class="sticky-cta-btn" href="#pilih"><?php esc_html_e('Pesan Sekarang', 'insolab'); ?></a>
 </div>
 <?php endif; ?>

@@ -646,11 +646,18 @@ html.js-reveal .q.open .q-body{max-height:900px}
     font-size:15px;font-weight:700;padding:14px 22px;border-radius:999px;
     text-decoration:none;white-space:nowrap;
   }
+  .sticky-cta-wa{
+    flex-shrink:0;width:44px;height:44px;border-radius:50%;
+    background:#0F7A6C;color:#fff;display:flex;align-items:center;justify-content:center;
+    text-decoration:none;
+  }
+  .sticky-cta-wa svg{width:22px;height:22px}
+  .sticky-cta-wa:active{background:#0D6B5D}
   .sticky-cta-btn:active{background:var(--teal-a11y-d)}
   /* ruang supaya kandungan tak tertutup sticky bar */
-  body{padding-bottom:76px}
+  body{padding-bottom:150px}
   /* WhatsApp FAB naik ke atas sticky bar */
-  .wa-float{left:16px!important;right:auto!important;bottom:100px!important}
+  .wa-float{position:static!important;right:auto!important;bottom:auto!important;flex-direction:row!important;gap:8px!important}
 }
 
 /* ── Mobile CRO: gambar produk lebih kecil supaya CTA nampak dalam viewport ── */
@@ -673,8 +680,8 @@ html.js-reveal .q.open .q-body{max-height:900px}
   .wa-float-close{width:44px!important;height:44px!important;margin:0 0 10px!important}
   .wa-float-close svg{width:18px;height:18px}
   .wa-float{right:16px;bottom:16px}
-  .wa-float-btn{width:56px!important;height:56px!important;padding:0!important}
-  .wa-float-btn svg{width:28px;height:28px}
+  .wa-float-btn{width:48px!important;height:48px!important;padding:0!important}
+  .wa-float-btn svg{width:24px;height:24px}
 }
 
 @media(max-width:780px){
